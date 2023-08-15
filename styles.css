@@ -1,0 +1,90 @@
+:root {
+  --primaryColor: #fbc534;
+  --secondaryColor: #a46ff8;
+  --primaryFontColor: #fff;
+  --secondaryFontColor: #e3c9ff;
+  --darkFontColor: #825d08;
+  --primaryBgColor: #fff;
+}
+
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--primaryBgColor);
+  color: var(--primaryFontColor);
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3rem 10rem;
+}
+
+.header__logo {
+  color: var(--primaryColor);
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header__nav__link {
+  color: var(--secondaryFontColor);
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.button {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.6rem;
+  padding: 1.5rem 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.header__button {
+  background-color: var(--primaryColor);
+  color: var(--darkFontColor);
+  box-shadow: 0 0 0 0.3rem rgba(196, 196, 196, 0.569);
+}
+
+.main {
+}
+
+.main__heroSection {
+  min-height: 100vh;
+
+  background: rgb(181, 140, 252);
+  background: linear-gradient(
+    153deg,
+    rgba(181, 140, 252, 1) 0%,
+    rgba(137, 70, 243, 1) 35%,
+    rgba(203, 118, 118, 1) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
