@@ -30,11 +30,13 @@ body {
 
 .header {
   position: absolute;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 3rem 10rem;
+  height: 12rem;
+  padding: 3rem 15rem;
 }
 
 .header__logo {
@@ -46,7 +48,7 @@ body {
 
 .header__nav {
   display: flex;
-  gap: 1rem;
+  gap: 5rem;
 }
 
 .header__nav__link {
@@ -60,7 +62,6 @@ body {
   font-family: inherit;
   font-weight: 600;
   font-size: 1.6rem;
-  padding: 1.5rem 2rem;
   border: none;
   outline: none;
   cursor: pointer;
@@ -70,15 +71,19 @@ body {
 .header__button {
   background-color: var(--primaryColor);
   color: var(--darkFontColor);
+  padding: 1.5rem 2rem;
   box-shadow: 0 0 0 0.3rem rgba(196, 196, 196, 0.569);
 }
 
 .main {
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .main__heroSection {
-  min-height: 100vh;
-
+  position: relative;
+  display: flex;
+  padding-block: 12rem 8rem;
   background: rgb(181, 140, 252);
   background: linear-gradient(
     153deg,
@@ -87,4 +92,208 @@ body {
     rgba(203, 118, 118, 1) 60%,
     rgba(255, 255, 255, 1) 100%
   );
+}
+
+.main__heroSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 10rem;
+  background-color: var(--secondaryFontColor);
+}
+
+.main__heroSection__txtContainer {
+  flex: 1;
+  margin-inline-start: 15rem;
+}
+
+.main__heroSection__txtContainer__title {
+  font-size: 5.6rem;
+}
+.main__heroSection__txtContainer__title > span {
+  display: block;
+  position: relative;
+}
+
+/*Dropping text*/
+.dropping-texts {
+  position: absolute;
+  display: inline-block;
+  width: 18rem;
+  height: 100%;
+  margin-inline-start: 1rem;
+}
+
+.dropping-texts > div {
+  font-size: 0;
+  opacity: 0;
+  margin-left: -3rem;
+  position: absolute;
+  color: var(--primaryColor);
+}
+
+.dropping-texts > div:nth-child(1) {
+  animation: roll 5s linear infinite 0s;
+}
+.dropping-texts > div:nth-child(2) {
+  animation: roll 5s linear infinite 2s;
+}
+.dropping-texts > div:nth-child(3) {
+  animation: roll2 5s linear infinite 3.5s;
+}
+
+@keyframes roll {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    margin-left: -3rem;
+    margin-top: 0;
+    transform: rotate(-25deg);
+  }
+  3% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  5% {
+    font-size: inherit;
+    opacity: 1;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  20% {
+    font-size: inherit;
+    opacity: 1;
+    margin-left: 0;
+    margin-top: 0;
+    transform: rotate(0deg);
+  }
+  27% {
+    font-size: 0;
+    opacity: 0.5;
+    margin-left: 2rem;
+    margin-top: 10rem;
+  }
+  100% {
+    font-size: 0;
+    opacity: 0;
+    margin-left: -3rem;
+    margin-top: 0;
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes roll2 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    margin-left: -3rem;
+    margin-top: 0;
+    transform: rotate(-25deg);
+  }
+  3% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  5% {
+    font-size: inherit;
+    opacity: 1;
+    margin-left: 0;
+    margin-top: 0;
+  }
+  30% {
+    font-size: inherit;
+    opacity: 1;
+    margin-left: 0;
+    margin-top: 0;
+    transform: rotate(0deg);
+  }
+  37% {
+    font-size: 50rem;
+    opacity: 0;
+    margin-left: -100rem;
+    margin-top: -80rem;
+  }
+  100% {
+    font-size: 0;
+    opacity: 0;
+    margin-left: -3rem;
+    margin-top: 0;
+    transform: rotate(15deg);
+  }
+}
+/*Dropping text*/
+
+.main__heroSection__txtContainer__txt {
+  width: 32rem;
+  color: var(--secondaryFontColor);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: 2.5rem;
+}
+
+.main__heroSection__txtContainer__btnContainer {
+  display: flex;
+  gap: 5rem;
+  margin-top: 5rem;
+}
+
+.main__heroSection__txtContainer__btnContainer__btn1 {
+  background-color: var(--primaryColor);
+  color: var(--darkFontColor);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 0 0.3rem rgba(196, 196, 196, 0.569);
+}
+
+.main__heroSection__txtContainer__btnContainer__btn2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  background-color: transparent;
+  color: var(--secondaryFontColor);
+}
+
+.main__heroSection__txtContainer__btnContainer__btn2 > svg {
+  fill: var(--primaryColor);
+  width: 5rem;
+  background-color: var(--primaryBgColor);
+  padding: 1.5rem;
+  border-radius: 50%;
+}
+
+.main__heroSection__imgContainer {
+  position: relative;
+  display: flex;
+  align-items: end;
+  flex: 1;
+  margin-inline-end: 15rem;
+}
+
+.main__heroSection__imgContainer__img {
+  z-index: 2;
+  object-fit: cover;
+  width: 90%;
+  margin-inline-start: auto;
+}
+
+.main__heroSection__imgContainer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline-end: 0;
+  z-index: 1;
+  display: block;
+  width: 70%;
+  aspect-ratio: 0.9;
+  background: rgb(181, 140, 252);
+  background: linear-gradient(
+    153deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(181, 140, 252, 1) 50%,
+    rgba(137, 70, 243, 1) 100%
+  );
+  box-shadow: 0 0 0 1rem var(--primaryBgColor);
+  border-radius: 10rem 10rem 1rem 1rem;
 }
