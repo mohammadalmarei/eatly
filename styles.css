@@ -1,10 +1,12 @@
 :root {
   --primaryColor: #fbc534;
   --secondaryColor: #a46ff8;
+  --darkerSecondaryColor: #8045dd;
   --primaryFontColor: #fff;
   --secondaryFontColor: #e3c9ff;
   --darkFontColor: #825d08;
   --primaryBgColor: #fff;
+  --lightBorderColor: rgba(196, 196, 196, 0.569);
 }
 
 *,
@@ -72,7 +74,7 @@ body {
   background-color: var(--primaryColor);
   color: var(--darkFontColor);
   padding: 1.5rem 2rem;
-  box-shadow: 0 0 0 0.3rem rgba(196, 196, 196, 0.569);
+  box-shadow: 0 0 0 0.3rem var(--lightBorderColor);
 }
 
 .main {
@@ -84,7 +86,6 @@ body {
   position: relative;
   display: flex;
   padding-block: 12rem 8rem;
-  background: rgb(181, 140, 252);
   background: linear-gradient(
     153deg,
     rgba(181, 140, 252, 1) 0%,
@@ -112,6 +113,7 @@ body {
 .main__heroSection__txtContainer__title {
   font-size: 5.6rem;
 }
+
 .main__heroSection__txtContainer__title > span {
   display: block;
   position: relative;
@@ -137,9 +139,11 @@ body {
 .dropping-texts > div:nth-child(1) {
   animation: roll 5s linear infinite 0s;
 }
+
 .dropping-texts > div:nth-child(2) {
   animation: roll 5s linear infinite 2s;
 }
+
 .dropping-texts > div:nth-child(3) {
   animation: roll2 5s linear infinite 3.5s;
 }
@@ -243,7 +247,7 @@ body {
   background-color: var(--primaryColor);
   color: var(--darkFontColor);
   padding: 1.5rem 2rem;
-  box-shadow: 0 0 0 0.3rem rgba(196, 196, 196, 0.569);
+  box-shadow: 0 0 0 0.3rem var(--lightBorderColor);
 }
 
 .main__heroSection__txtContainer__btnContainer__btn2 {
@@ -287,7 +291,6 @@ body {
   display: block;
   width: 70%;
   aspect-ratio: 0.9;
-  background: rgb(181, 140, 252);
   background: linear-gradient(
     153deg,
     rgba(255, 255, 255, 1) 0%,
@@ -296,4 +299,163 @@ body {
   );
   box-shadow: 0 0 0 1rem var(--primaryBgColor);
   border-radius: 10rem 10rem 1rem 1rem;
+}
+
+.main__programSection {
+  margin-bottom: 10rem;
+}
+
+.main__programSection__titleContainer {
+  display: flex;
+  gap: 5rem;
+  margin-inline: 15rem;
+  padding-block: 5rem;
+}
+
+.main__programSection__titleContainer__title {
+  display: flex;
+  align-items: center;
+  color: var(--secondaryColor);
+}
+
+.main__programSection__titleContainer__title > img {
+  width: 5.5rem;
+  margin-inline-end: 1rem;
+  background-color: var(--secondaryColor);
+}
+
+.iconBadge {
+  padding: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 0.3rem var(--lightBorderColor);
+}
+
+.main__programSection__titleContainer__btns {
+  margin-inline-start: auto;
+}
+
+.main__programSection__titleContainer__btns__btn {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.3rem var(--lightBorderColor);
+  margin: 1rem;
+}
+
+.main__programSection__titleContainer__btns__btn > svg {
+  width: 3.5rem;
+  margin: 0.5rem;
+  vertical-align: top;
+  fill: var(--secondaryColor);
+}
+
+.main__programSection__cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-inline: 15rem;
+  background-color: var(--secondaryColor);
+  border-radius: 2rem;
+  box-shadow: 0 0 0 1.5rem rgba(232, 232, 232, 0.57);
+}
+
+.main__programSection__cardsContainer__card {
+  position: relative;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+  background-color: var(--secondaryColor);
+  text-align: center;
+  width: clamp(20rem, 25%, 50rem);
+  border-radius: 2rem;
+  transition: background-color 0.5s ease-in-out, top 0.5s ease-in-out;
+}
+
+.main__programSection__cardsContainer__card-selected {
+  top: -3rem;
+  z-index: 2;
+  background-color: var(--primaryColor);
+}
+
+.main__programSection__cardsContainer__card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondaryColor);
+  border-radius: 2rem;
+  transition: background-color 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+.main__programSection__cardsContainer__card-selected::after {
+  content: "";
+  position: absolute;
+  bottom: -3rem;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primaryColor);
+  border-radius: 2rem 2rem 0 0;
+}
+
+.main__programSection__cardsContainer :first-child::after {
+  border-radius: 2rem 2rem 0;
+}
+
+.main__programSection__cardsContainer :last-child::after {
+  border-radius: 2rem 2rem 2rem 0;
+}
+
+.main__programSection__cardsContainer__card__img {
+  width: 5rem;
+  background-color: var(--darkerSecondaryColor);
+  transition: background-color 0.5s ease-in-out;
+}
+
+.main__programSection__cardsContainer__card-selected
+  > .main__programSection__cardsContainer__card__img {
+  background-color: var(--darkFontColor);
+}
+
+.main__programSection__cardsContainer__card__title {
+  transition: color 0.5s ease-in-out;
+}
+
+.main__programSection__cardsContainer__card-selected
+  > .main__programSection__cardsContainer__card__title {
+  color: var(--darkFontColor);
+}
+
+.main__programSection__cardsContainer__card__desc {
+  color: var(--secondaryFontColor);
+  transition: color 0.5s ease-in-out;
+}
+
+.main__programSection__cardsContainer__card-selected
+  > .main__programSection__cardsContainer__card__desc {
+  color: var(--darkFontColor);
+}
+
+.main__programSection__cardsContainer__card__button {
+  display: flex;
+  gap: 1rem;
+  background-color: transparent;
+  color: var(--darkFontColor);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.main__programSection__cardsContainer__card-selected
+  > .main__programSection__cardsContainer__card__button {
+  opacity: 1;
+}
+
+.main__programSection__cardsContainer__card__button > svg {
+  width: 1.5rem;
+  fill: var(--darkFontColor);
 }
